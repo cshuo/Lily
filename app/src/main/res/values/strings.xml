@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">小百合</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">关于</string>
+
+    <string-array name="module_array">
+        <item>百合十大</item>
+        <item>活动讲座</item>
+        <item>分类讨论</item>
+        <item>谈天说地</item>
+        <item>特别服务</item>
+        <item>文章查询</item>
+        <item>系统设置</item>
+    </string-array>
+
+    <string name="drawer_open">选择</string>
+    <string name="drawer_close">小百合</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
