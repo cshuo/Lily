@@ -75,6 +75,10 @@ public class MainActivity extends Activity implements LilyModuleAdapter.OnItemCl
         if (savedInstanceState == null) {
 //            selectItem(0);
         }
+
+        TopFragment fragment = new TopFragment();
+        getFragmentManager().beginTransaction().replace(R.id.content_frame,fragment)
+        .commit();
     }
 
     @Override
@@ -139,11 +143,13 @@ public class MainActivity extends Activity implements LilyModuleAdapter.OnItemCl
 
     private void selectItem(int position) {
         // update the main content by replacing fragments
+//        Fragment fragment = TopFragment.newInstance();
         Fragment fragment = TopFragment.newInstance();
 
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.replace(R.id.content_frame, fragment);
+        ft.addToBackStack(null);
         ft.commit();
 
         // update selected item title, then close the drawer

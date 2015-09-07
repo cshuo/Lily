@@ -15,7 +15,10 @@ import android.view.ViewGroup;
  * {@link HomeFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
  * Use the {@link HomeFragment#newInstance} factory method to
- * create an instance of this fragment.
+ * create an instance of this fragmen
+ * .android:layout_width="match_parent"
+ * android:layout_height="wrap_content"
+ * android:orientation="vertical" >
  */
 public class HomeFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match

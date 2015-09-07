@@ -26,6 +26,10 @@ public class TopContent {
      * A dummy item representing a piece of content.
      */
     public static class TopItem {
+        public int rank;
+        public String content;
+        public String url;
+
         public int getRank() {
             return rank;
         }
@@ -42,17 +46,24 @@ public class TopContent {
             this.content = content;
         }
 
-        public int rank;
-        public String content;
+        public String getUrl(){
+            return url;
+        }
 
-        public TopItem(int rank, String content) {
+        public void setUrl(String url){
+            this.url = url;
+        }
+
+        public TopItem(int rank, String content,String url) {
             this.rank = rank;
             this.content = content;
+            this.url = url;
         }
 
         @Override
         public String toString() {
-            return content;
+            return content + "第" + (rank+1) + "名";
         }
     }
 }
+
