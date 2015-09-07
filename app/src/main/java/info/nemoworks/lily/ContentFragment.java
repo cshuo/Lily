@@ -23,6 +23,10 @@ import org.htmlparser.tags.TableTag;
 import org.htmlparser.util.NodeList;
 import org.htmlparser.util.ParserException;
 
+import java.util.Arrays;
+import java.util.List;
+
+import info.nemoworks.lily.datamodel.ContentAdapter;
 import info.nemoworks.lily.datamodel.DividerItemDecoration;
 import info.nemoworks.lily.datamodel.MyAdapter;
 import info.nemoworks.lily.datamodel.SpacesItemDecoration;
@@ -32,10 +36,11 @@ import info.nemoworks.lily.datamodel.SpacesItemDecoration;
  */
 public class ContentFragment extends Fragment{
 
-    private RecyclerView mListView;
+    private AbsListView mListView;
 
-    private MyAdapter mAdapter;
+//    private ArrayAdapter mAdapter;
 
+    private ContentAdapter mAdapter;
     public ContentFragment(){
 
     }
@@ -52,10 +57,10 @@ public class ContentFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.item_content,container,false);
 
-        mListView = (RecyclerView)view.findViewById(R.id.item_content);
-        mListView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-        mListView.setLayoutManager(layoutManager);
+        mListView = (AbsListView)view.findViewById(R.id.item_content);
+//        mListView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+//        mListView.setLayoutManager(layoutManager);
 
         Bundle bundle = getArguments();
         String url = (String) bundle.get("url");
@@ -97,7 +102,11 @@ public class ContentFragment extends Fragment{
 
         @Override
         protected void onPostExecute(String[] strings) {
-            mAdapter = new MyAdapter(strings);
+//            mAdapter = new ArrayAdapter(getActivity(),android.R.layout.simple_expandable_list_item_1,
+//                    android.R.id.text1,strings);
+            List<String> contents = Arrays.asList(strings);
+            mAdapter = new ContentAdapter(getActivity(),R.layout.single_item,contents);
+
             mListView.setAdapter(mAdapter);
         }
     }
